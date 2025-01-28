@@ -1,5 +1,5 @@
 /*
-DTU/Heriot-Watt Clinic 2024-25
+DTU/Heriot-Watt Clinic 2023-24
 Data Acquisition Sketch
 
 This sketch runs on the VAWT's Teensy to collect data from all of the sensors. 
