@@ -6,9 +6,9 @@ This sketch runs on the VAWT's Teensy to collect data from all of the sensors.
 */
 
 // Define Pinouts
-#define currentPin A5; // Analog input pin
-#define windVanePin A2; // Analog input pin
-#define anemomPin 0; // Analog input pin
+const int currentPin = A5; // Analog input pin
+const int windVanePin = A2; // Analog input pin
+const int anemomPin = A0; // Analog input pin
 
 // Constants for analog inputs, [0 - 1023]
 int currentVal;
@@ -38,25 +38,30 @@ void setup() {
 void loop() {
   // Read and store Current pin
   currentVal = analogRead(currentPin); // returns value between 0 to 1023
-  currentVolt = currentVal * (5.0/1023.0); // convert analog value to voltage
-  currentAmps = currentVolt/currentConversionConstant; // get current in Amps
+  currentVolt = currentVal * (3.3/1023.0); // convert analog value to voltage
+  currentAmps = (currentVolt-2.63)/currentConversionConstant; // Offset by 2.63 (voltage at zero) to get current in Amps
+  
+  // Serial.print("Curr voltage is: ");
+  // Serial.println(currentVolt);
   Serial.print("Current [amps] is: ");
   Serial.println(currentAmps);
 
   // Read and store windvane pin
+  /*
   windVaneVal = analogRead(windVanePin); // returns value between 0 to 1023
-  windVaneVolt = windVaneVal * (5.0/1023.0); // convert analog value to voltage
+  windVaneVolt = windVaneVal * (3.3/1023.0); // convert analog value to voltage
   windVaneDir = windVaneVolt/windVaneConversionConstant; // get current in Amps
   Serial.print("WindVane [Voltage] is: ");
   Serial.println(windVaneDir);
+  */
 
   // Read and store anemometer pin
   anemonVal = analogRead(anemomPin); // returns value between 0 to 1023
-  anemonVolt = anemonVal * (5.0/1023.0); // convert analog value to voltage
+  anemonVolt = anemonVal * (3.3/1023.0); // convert analog value to voltage
   anemonSpeed = anemonVolt*anemConvConstant; // get current in Amps
   Serial.print("Anemometer [m/s] is: ");
   Serial.println(anemonSpeed);
-
   delay(1000); // wait 1 sec (1000 ms sample time)
+  
 }
 
