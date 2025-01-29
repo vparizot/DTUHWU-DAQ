@@ -1,8 +1,14 @@
 /*
-DTU/Heriot-Watt Clinic 2024-25
-Data Acquisition Sketch
+DataAcq.ino
+Modified: January 2025
+Author: Victoria Parizot
+Email: vparizot@g.hmc.edu
 
-This sketch runs on the VAWT's Teensy to collect data from all of the sensors. 
+Denmark Technical University/Heriot-Watt 2024-2025 Clinic Team Data Acquisition Sketch
+
+Purpose: Data Acquisition for the current, windvane, and anemometer sensors of the power 
+         electronics of the VAWT. Runs on a Teensy 4.2 and reads the voltage output from 
+         the sensors and logs sensor data in desired units.  
 */
 
 // Define Pinouts

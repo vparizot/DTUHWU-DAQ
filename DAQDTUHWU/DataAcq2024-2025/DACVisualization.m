@@ -1,7 +1,16 @@
-%% DTU/HWU 2024-2025 Clinic Team 
-% Data Visualization Script
-% vparizot@g.hmc.edu
-% 
+%{
+DACVisualization.m
+Modified: January 2025
+Author: Victoria Parizot
+Email: vparizot@g.hmc.edu
+
+Denmark Technical University/Heriot-Watt 2024-2025 Clinic Team Data Acquisition Sketch
+
+Purpose: Data Acquisition for the current, windvane, and anemometer sensors of the power 
+         electronics of the VAWT. Runs on a Teensy 4.2 and reads the voltage output from 
+         the sensors and logs sensor data in desired units.  
+
+%}
 
 %% convert time to s
 time = linspace(0,10);
