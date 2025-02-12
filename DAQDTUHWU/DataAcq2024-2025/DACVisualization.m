@@ -38,7 +38,7 @@ opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "WhitespaceRule", "preserve");
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "EmptyFieldRule", "auto");
 
 % Import the data feb11DAQtest2
-dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/feb11DAQtest", opts);
+dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/dtutest003", opts);
 dtuTest003data = dtuTest003.Variables;
 
 Current = dtuTest003data(1:3:end, 2); %amps
@@ -131,3 +131,22 @@ windroseZhivomirov(direction,windSpeed);
 
 % figure(3);
 WindRosePereira(direction,windSpeed);
+
+figure(4);
+% https://www.mathworks.com/help/matlab/ref/compass.html
+rad = direction*2*pi/360;
+rad = rad-pi/2;
+u = cos(rad) .* windSpeed; 
+v = sin(rad) .* windSpeed; 
+compass(u,v);
+aveDir = sum(rad.*windSpeed)/sum(windSpeed);
+w = mean(u); 
+z = mean(v); 
+
+% Generate the original plot.
+compass(u,v);
+hold on
+c = compass(w,z,'ro-', 'top');
+c.LineWidth = 2;
+view(-90,90)
+
