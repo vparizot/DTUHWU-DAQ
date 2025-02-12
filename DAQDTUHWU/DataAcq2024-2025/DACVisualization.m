@@ -13,6 +13,7 @@ Purpose: Data Acquisition for the current, windvane, and anemometer sensors of t
 Used HMC E80 Source Code for Matlabbing: https://github.com/HMC-E80/E80/blob/main/MATLAB/logreader.m
 %}
 
+close all;
 clear;
 clf;
 
@@ -36,14 +37,14 @@ opts.EmptyLineRule = "read";
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "WhitespaceRule", "preserve");
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "EmptyFieldRule", "auto");
 
-% Import the data
-dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/dtuTest003", opts);
-dtuTest003data = dtuTest003.Variables
+% Import the data feb11DAQtest2
+dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/feb11DAQtest", opts);
+dtuTest003data = dtuTest003.Variables;
 
 Current = dtuTest003data(1:3:end, 2); %amps
-direction = dtuTest003data(2:3:end, 2)'; 
-windSpeed =  dtuTest003data(3:3:end, 2)';
-time = 1:1:206;
+direction = dtuTest003data(2:3:end, 2); 
+windSpeed =  dtuTest003data(3:3:end, 2);
+time = 1:1:length(Current);
 
 %% TODO: Import from SD card 
 %{ 
@@ -123,3 +124,10 @@ title('Direction vs Time');
 xlabel('time (s)');
 ylabel('Direction [Degrees]');
 hold off;
+
+%% 
+figure(2);
+windroseZhivomirov(direction,windSpeed);
+
+% figure(3);
+WindRosePereira(direction,windSpeed);

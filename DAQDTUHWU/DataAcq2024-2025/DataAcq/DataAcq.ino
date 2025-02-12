@@ -69,7 +69,8 @@ float anemonSpeed;
 float currentConversionConstant = 0.185; // 0.185V per amp
 float windVaneSlope = 0.00863; // TODO
 float windVaneOffset = 0.795; // TODO
-float anemConvConstant = 9; // speed [m/s] = Voltage/5 * A + B = V/5 * 45 + 0 = V * 9
+float anemConvConstant = 5.85; // speed [m/s] = Voltage/5 * A + B = V/5 * 45 + 0 = V * 9
+float anemOffset = 0; //0.334;
 
 
 void setup() {
@@ -104,10 +105,9 @@ void loop() {
   // Serial.println();
 
   // Read and store windvane pin
-  
   windVaneVal = analogRead(windVanePin); // returns value between 0 to 1023
   windVaneVolt = windVaneVal * (3.3/1023.0); // convert analog value to voltage
-  windVaneDeg = 115*windVaneVolt + 93; // get current in Amps
+  windVaneDeg = int((115*windVaneVolt + 93)) % 360; // get current in Amps
 
   Serial.print("WindVane[volt, degrees]: ");
   Serial.print(windVaneVolt);
@@ -120,7 +120,7 @@ void loop() {
   // Read and store anemometer pin
   anemonVal = analogRead(anemomPin); // returns value between 0 to 1023
   anemonVolt = anemonVal * (3.3/1023.0); // convert analog value to voltage
-  anemonSpeed = anemConvConstant*anemonVolt; // get current in Amps
+  anemonSpeed = anemConvConstant*anemonVolt - anemOffset; // get current in Amps
   Serial.print("Anemometer[voltage, speed]: ");
   Serial.print(anemonVolt);
   Serial.print(",");
@@ -147,7 +147,7 @@ void loop() {
   //   logger.log();
   // }
 
-  delay(1000); // wait 1 sec (1000 ms sample time)
+  delay(100); // wait .1 sec (100 ms sample time)
   
 }
 
