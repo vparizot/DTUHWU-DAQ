@@ -46,9 +46,9 @@ Used HMC E80 Source Code for SD card support: https://github.com/HMC-E80/E80/blo
 ////////////////////////////////////////////////////////
 
 // Define Pinouts
-const int currentPin = A5; // Analog input pin
-const int windVanePin = A2; // Analog input pin
-const int anemomPin = A0; // Analog input pin
+const int currentPin = A5; // Analog input pin, pin 19
+const int windVanePin = A2; // Analog input pin, pin 16
+const int anemomPin = A0; // Analog input pin, pin 14
 
 // Constants for analog inputs, [0 - 1023]
 int currentVal;
@@ -107,9 +107,9 @@ void loop() {
   // Read and store windvane pin
   windVaneVal = analogRead(windVanePin); // returns value between 0 to 1023
   windVaneVolt = windVaneVal * (3.3/1023.0); // convert analog value to voltage
-  windVaneDeg = int((115*windVaneVolt + 93)) % 360; // get current in Amps
+  windVaneDeg = int((159*windVaneVolt + 244)) % 360; // get current in Amps
 
-  Serial.print("WindVane[volt, degrees]: ");
+  Serial.print("WindVane[volt, degrees]: "); 
   Serial.print(windVaneVolt);
   Serial.print(",");
 

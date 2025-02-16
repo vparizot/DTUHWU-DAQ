@@ -9,6 +9,10 @@ Denmark Technical University/Heriot-Watt 2024-2025 Clinic Team Data Acquisition 
 Purpose: Data Acquisition for the current, windvane, and anemometer sensors of the power 
          electronics of the VAWT. Runs on a Teensy 4.2 and reads the voltage output from 
          the sensors and logs sensor data in desired units.  
+febtest3- jovie and david spin crazy
+febtest4 - mai spins slowly and consistently
+febtest5 - mai and caden doing tachometer stuff
+febtest6 --- drill test negative current
 
 Used HMC E80 Source Code for Matlabbing: https://github.com/HMC-E80/E80/blob/main/MATLAB/logreader.m
 %}
@@ -38,13 +42,15 @@ opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "WhitespaceRule", "preserve");
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "EmptyFieldRule", "auto");
 
 % Import the data feb11DAQtest2
-dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/dtutest003", opts);
+dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/febtest7", opts);
 dtuTest003data = dtuTest003.Variables;
 
 Current = dtuTest003data(1:3:end, 2); %amps
 direction = dtuTest003data(2:3:end, 2); 
 windSpeed =  dtuTest003data(3:3:end, 2);
-time = 1:1:length(Current);
+timeCurrent = 1:1:length(Current);
+timeSpeed = 1:1:length(windSpeed);
+timeDir = 1:1:length(direction);
 
 %% TODO: Import from SD card 
 %{ 
@@ -97,7 +103,7 @@ sgtitle('DTU/HWU Clinic: Weather Characteristics vs Time');
 %% Plot Current (Current [A] vs time)
 subplot(3,1,1);
 hold on;
-plot(time, Current, '-b.');
+plot(timeCurrent(100:end), Current(100:end), '-b.');
 % scatter(time, Current, 10, "filled");
 title('Current vs Time');
 xlabel('time (s)');
@@ -107,7 +113,7 @@ hold off;
 %% Plot Annemometer (windspeed [m/s] vs time)
 subplot(3,1,2);
 hold on;
-plot(time,windSpeed, '-g.');
+plot(timeSpeed,windSpeed, '-g.');
 % scatter(time, windSpeed, 10, "filled");
 title('Windspeed vs Time');
 xlabel('Time (s)');
@@ -118,7 +124,7 @@ hold off;
 
 subplot(3,1,3);
 hold on;
-plot(time,direction, '-r.');
+plot(timeDir,direction, '-r.');
 % scatter(time, direction, 10, "filled");
 title('Direction vs Time');
 xlabel('time (s)');
