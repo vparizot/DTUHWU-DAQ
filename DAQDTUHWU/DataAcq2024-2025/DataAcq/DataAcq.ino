@@ -95,7 +95,7 @@ void loop() {
   // Read and store Current pin
   currentVal = analogRead(currentPin); // returns value between 0 to 1023
   currentVolt = currentVal * (3.3/1023.0); // convert analog value to voltage
-  currentAmps = (currentVolt-2.63)/currentConversionConstant; // Offset by 2.63 (voltage at zero) to get current in Amps
+  currentAmps = (currentVolt-2.6)/currentConversionConstant; // Offset by 2.63 (voltage at zero) to get current in Amps
   Serial.print("Current[volts, amps]: ");
   Serial.print(currentVolt); 
   Serial.print(",");

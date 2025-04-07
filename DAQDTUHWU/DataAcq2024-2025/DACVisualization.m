@@ -14,6 +14,48 @@ febtest4 - mai spins slowly and consistently
 febtest5 - mai and caden doing tachometer stuff
 febtest6 --- drill test negative current
 
+April6 test
+no cloud cover, 70F, 
+
+test1 - 15mph +-1.5
+
+test2 - 20mph
+
+test3 - 25mph
+
+test 4 - 30mph
+
+test5 - 35mph
+
+
+test6 - 15mph
+
+test7 - 20 paused cause of deflection
+
+test8 - 20-22
+
+test9 - 25
+
+test10 - 30mph
+
+test11 - 30-35
+test12 - 35 mph (good test)
+// fixed turbine
+
+test13 - 30mph
+test14 - 45
+
+test 15 - 15-30
+
+test 16 - 35mph
+test17 - 
+
+test 18 - slow stop sign then 40mph
+
+
+
+Direction of road: 111 SE degrees
+
 Used HMC E80 Source Code for Matlabbing: https://github.com/HMC-E80/E80/blob/main/MATLAB/logreader.m
 %}
 
@@ -42,7 +84,7 @@ opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "WhitespaceRule", "preserve");
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "EmptyFieldRule", "auto");
 
 % Import the data feb11DAQtest2
-dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/tests/febtest7", opts);
+dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/pickupTests/test12", opts);
 dtuTest003data = dtuTest003.Variables;
 
 Current = dtuTest003data(1:3:end, 2); %amps
@@ -106,7 +148,7 @@ hold on;
 plot(timeCurrent(100:end), Current(100:end), '-b.');
 % scatter(time, Current, 10, "filled");
 title('Current vs Time');
-xlabel('time (s)');
+xlabel('time (ms)');
 ylabel('Current [A]');
 hold off;
 
@@ -116,7 +158,7 @@ hold on;
 plot(timeSpeed,windSpeed, '-g.');
 % scatter(time, windSpeed, 10, "filled");
 title('Windspeed vs Time');
-xlabel('Time (s)');
+xlabel('Time (ms)');
 ylabel('Wind Speed [m/s]');
 hold off;
 
@@ -127,8 +169,8 @@ hold on;
 plot(timeDir,direction, '-r.');
 % scatter(time, direction, 10, "filled");
 title('Direction vs Time');
-xlabel('time (s)');
-ylabel('Direction [Degrees]');
+xlabel('time (ms)');
+ylabel('Direction [voltage]');
 hold off;
 
 %% 
