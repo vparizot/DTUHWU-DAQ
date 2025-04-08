@@ -17,42 +17,43 @@ febtest6 --- drill test negative current
 April6 test
 no cloud cover, 70F, 
 
-test1-15mph - 15mph +-1.5
+test1 - 15mph @ 12:36 PM - 12:38 PM
 
-test2 - 20mph
+test2 - 20mph @ 12:38 PM - 12:39 PM
 
-test3 - 25mph
+test3 - 25mph @ 12:39 PM - 12:40 PM
 
-test4 - 30mph
+test4 - 30mph @ 12:40 PM - 12:41 PM
 
-test5 - 35mph
+test5 - 35mph @ 12:42 PM - 12:43 PM
 
+test6 - 15mph @  12:49 PM - 12:50 PM
 
-test6 - 15mph
+test7 - 20 paused cause of deflection @ 12:50 PM - 12:51 PM
 
-test7 - 20 paused cause of deflection
+test8 - 20-22 @ 12:52 PM - 12:53 PM
 
-test8 - 20-22
+test9 - 25 @ 12:53 PM - 12:54 PM
 
-test9 - 25
+test10 - 30mph @ 12:54 PM - 12:55 PM
 
-test10 - 30mph
-
-test11 - 30-35
-test12 - 35 mph (good test)
+test11 - 30-35 @ 12:55 PM - 12:56 PM
+test12 - 35 mph (good test) @ 12:56 PM - 12:57 PM
 // fixed turbine
 
-test13 - 30mph
-test14 - 45
+test13 - 30mph @ 1:35 PM - 1:36 PM
 
-test 15 - 15-30
+test14 - 45 @ 1:37 PM - 1:38 PM
 
-test 16 - 35mph
-test17 - 
+test 15 - 15-30 @ 1:38 PM - 1:39 PM
 
-test 18 - slow stop sign then 40mph
+test 16 - 35mph @ 1:40 PM - 1:40 PM
+test 17 - @ 1:41 PM - 1:42 PM
 
+test 18 - slow stop sign then 40mph @ 1:43 PM - 1:44 PM
 
+test 19 @ 1:52 PM - 1:56 PM
+test 20 @ 1:56 PM - 1:58 PM
 
 Direction of road: 111 SE degrees
 
