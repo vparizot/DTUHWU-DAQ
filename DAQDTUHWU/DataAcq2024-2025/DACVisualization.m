@@ -17,13 +17,13 @@ febtest6 --- drill test negative current
 April6 test
 no cloud cover, 70F, 
 
-test1 - 15mph +-1.5
+test1-15mph - 15mph +-1.5
 
 test2 - 20mph
 
 test3 - 25mph
 
-test 4 - 30mph
+test4 - 30mph
 
 test5 - 35mph
 
@@ -84,10 +84,10 @@ opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "WhitespaceRule", "preserve");
 opts = setvaropts(opts, ["Var1", "Var2", "Var3"], "EmptyFieldRule", "auto");
 
 % Import the data feb11DAQtest2
-dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/pickupTests/test12", opts);
+dtuTest003 = readtable("/Users/vparizot/Downloads/dtu-hwu-DAQ/DAQDTUHWU/DataAcq2024-2025/pickupTests/test20", opts);
 dtuTest003data = dtuTest003.Variables;
 
-Current = dtuTest003data(1:3:end, 2); %amps
+Current = -1.*dtuTest003data(1:3:end, 2); %amps
 direction = dtuTest003data(2:3:end, 2); 
 windSpeed =  dtuTest003data(3:3:end, 2);
 timeCurrent = 1:1:length(Current);
@@ -173,7 +173,9 @@ xlabel('time (ms)');
 ylabel('Direction [voltage]');
 hold off;
 
-%% 
+
+%%
+%{
 figure(2);
 windroseZhivomirov(direction,windSpeed);
 
@@ -197,4 +199,4 @@ hold on
 c = compass(w,z,'ro-', 'top');
 c.LineWidth = 2;
 view(-90,90)
-
+%}
