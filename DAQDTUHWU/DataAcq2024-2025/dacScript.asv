@@ -1,0 +1,42 @@
+
+% Trials 9, 11, 12, 19, 20
+
+close all;
+clear;
+clf;
+
+output9 = DACVisualization("test9")
+output11 = DACVisualization("test11")
+output12 = DACVisualization("test12")
+output19 = DACVisualization("test19")
+output20 = DACVisualization("test20")
+
+Current9 = mean(output9(:,1));
+windSpeed9 = mean(output9(:,2));
+
+Current11 = mean(output11(:,1));
+windSpeed11 = mean(output11(:,2));
+
+Current12 = mean(output12(:,1));
+windSpeed12 = mean(output12(:,2));
+
+Current19 = mean(output19(:,1));
+windSpeed19 = mean(output19(:,2));
+
+Current20 = mean(output20(:,1));
+windSpeed20 = mean(output20(:,2));
+
+x = [windSpeed9, windSpeed11, windSpeed12, windSpeed19, windSpeed20];
+y = [Current9, Current11, Current12, Current19, Current20];
+hold on 
+figure(3);
+scatter(x, y, "filled")
+xlabel("Wind Speed [m/s]");
+ylabel("");
+% scatter(windSpeed11, Current11)
+% scatter(windSpeed12, Current12)
+% scatter(windSpeed19, Current19)
+% scatter(windSpeed20, Current20)
+
+hold off
+

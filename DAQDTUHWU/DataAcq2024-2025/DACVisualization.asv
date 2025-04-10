@@ -60,6 +60,9 @@ Direction of road: 111 SE degrees
 Used HMC E80 Source Code for Matlabbing: https://github.com/HMC-E80/E80/blob/main/MATLAB/logreader.m
 %}
 
+close all;
+clear;
+clf;
 
 function output = DACVisualization(filename)
 
@@ -207,5 +210,4 @@ c.LineWidth = 2;
 view(-90,90)
 %}
 
-output = [Current, windSpeed]
-end
+output = {Current,}
